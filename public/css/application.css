@@ -1,0 +1,49 @@
+.container {
+  margin: 20px auto;
+  width: 60%;
+  padding: 10px;
+  border-radius: 16px;
+  background: #CCFFCC;
+  text-align: center;
+}
+
+.container input {
+  display:inline;
+}
+
+form * {
+  display:inline-block;
+  margin: 8px 0px;
+}
+
+form #new_album_name {
+  visibility: hidden;
+}
+
+
+th {
+  text-align: left;
+}
+
+#images {
+  width: auto;
+  margin: 20px auto;
+}
+
+#images .image span {
+  display:inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+#images .image img {
+  display:block;
+  max-width: initial;
+  margin: 20px auto;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}

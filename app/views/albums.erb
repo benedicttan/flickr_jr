@@ -1,0 +1,6 @@
+
+<h2><%= User.find(@user_id).email %>'s albums</h2>
+<% Album.where(user_id: @user_id).each do |a| %>
+  <a href=#><%= a.name %></a></br>
+<% end %>
+</div>

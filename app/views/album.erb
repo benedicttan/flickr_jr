@@ -1,0 +1,13 @@
+<% if @album_id %>
+  <h2>Album title: <%= Album.find(@album_id).name %></h2>
+  </br>
+  <div id=images>
+    <% Photo.where(album_id: @album_id).each do |i| %>
+    <div class=image>
+        <img src="<%= i.file %>" /></br>
+        <span>User: <%= i.album.user.email %></span></br>
+        <span>Album: <%= i.album.name %></span></br>
+    </div>
+    <% end %>
+  </div>
+<% end %>
