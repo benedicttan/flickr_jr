@@ -3,8 +3,13 @@
   width: 60%;
   padding: 10px;
   border-radius: 16px;
-  background: #CCFFCC;
+  background: rgba(255,255,255,.5);
   text-align: center;
+  z-index: 100;
+}
+
+#login {
+  margin-bottom:100px;
 }
 
 .container input {
@@ -46,4 +51,23 @@ th {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
+}
+
+#carousel-example-generic {
+  position:absolute;
+  left:0px;
+  top:52px;
+  height:500px;
+  max-height:500px;
+  width:100%;
+  overflow:hidden;
+  z-index: -9999;
+}
+
+#carousel-example-generic .item img {
+  width:100%;
+}
+
+
+.bigcontainer {
 }

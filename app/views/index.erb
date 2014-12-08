@@ -34,76 +34,74 @@
 </nav>
 
 <% if session[:user] %>
-  <div class=container>
-    <form action="/upload" method=post enctype="multipart/form-data">
-      <input type=file name=image value="Choose pic" >
-      <input type=submit value=Upload></br>
-      <select name="album_id" id="album_id">
-        <% session[:user].albums.each do |a| %>
-        <option value="<%= a.id %>"><%= a.name %></option>
-        <% end %>
-        <option value=0>- Create new album -</option>
-      </select>
-      <input type=text name="new_album_name" id="new_album_name">
-    </form>
-  </div>
+<div class=container>
+  <form action="/upload" method=post enctype="multipart/form-data">
+    <input type=file name=image value="Choose pic" >
+    <input type=submit value=Upload></br>
+    <select name="album_id" id="album_id">
+      <% session[:user].albums.each do |a| %>
+      <option value="<%= a.id %>"><%= a.name %></option>
+      <% end %>
+      <option value=0>- Create new album -</option>
+    </select>
+    <input type=text name="new_album_name" id="new_album_name">
+  </form>
+</div>
 <% end %>
 
 <% if !session[:user] %>
-  <div class=container>
-    <h2>Sign up:</h2>
-    <form method=post action="/signup" id=signup>
-      <input type=text placeholder="Email" id=email name="user[email]"></br>
-      <input type=password placeholder="Password" id=password name="user[password]"></br>
-      <input type=submit value="Sign up">
-    </form></br>
-  </div>
+<div class=container>
+  <h2>Sign up</h2>
+  <form method=post action="/signup" id=signup>
+    <input type=text placeholder="Email" id=email name="user[email]"></br>
+    <input type=password placeholder="Password" id=password name="user[password]"></br>
+    <input type=submit value="Sign up" class="btn btn-primary">
+  </form></br>
+</div>
 
-  <div class=container>
-    <h2>Log in:</h2>
-    <form method=post action="/login">
-      <input type=text placeholder="Email" name="login[email]"></br>
-      <input type=password placeholder="Password" name="login[password]"></br>
-      <input type=submit value="Log in">
-    </form></br>
-  </div>
+<div class=container id=login>
+  <h2>Log in</h2>
+  <form method=post action="/login">
+    <input type=text placeholder="Email" name="login[email]"></br>
+    <input type=password placeholder="Password" name="login[password]"></br>
+    <input type=submit value="Log in" class="btn btn-primary">
+  </form></br>
+</div>
 <% end %>
 
 
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-        <img src="/images/Polar-Bear-009.jpg" /></br>
+<div class=bigcontainer>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+          <img src="/images/Polar-Bear-009.jpg" /></br>
+      </div>
+      <div class="item">
+          <img src="/images/SOMM_820.jpg" /></br>
+      </div>
+      <% Photo.all.each do |i| %>
+      <div class="item">
+          <img src="<%= i.file %>" /></br>
+      </div>
+      <% end %>
     </div>
-    <div class="item">
-        <img src="/images/SOMM_820.jpg" /></br>
-    </div>
-    <% Photo.all.each do |i| %>
-    <div class="item">
-        <img src="<%= i.file %>" /></br>
-    </div>
-    <% end %>
+
+    <!-- Controls -->
+    <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->
   </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
+
+
 
 
 
